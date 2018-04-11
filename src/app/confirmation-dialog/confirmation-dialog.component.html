@@ -1,0 +1,24 @@
+<div class="container" fxLayout.xs="column" fxLayoutWrap="wrap" fxLayout="row">
+  <mat-card class="restaurant-card" fxFlex.gt-xs="100%">
+      <!-- <mat-spinner></mat-spinner> -->
+    <img mat-card-image [src]="this.imageSelected" alt="Food">
+    <mat-card-content>
+      <h3 class="restaurant-name">
+        {{ this.nameSelected }}
+      </h3>
+      <h4 class="restaurant-food">
+       Reservation made for <span class="food-selected">{{ this.foodSelected }}</span>
+      </h4>
+      <div class="restaurant-time">
+        Your lunch is set to be picked up at <strong>{{ this.timeSelected.time | lowercase}}</strong>
+      </div>
+    </mat-card-content>
+    <div class="restaurant-button-holder">
+      <button class="restaurant-button" mat-button
+        (click)="closeDialog()" 
+        tabindex="-1" color="primary">
+        Close
+      </button>
+    </div>
+  </mat-card>
+</div>

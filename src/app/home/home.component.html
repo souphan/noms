@@ -1,0 +1,225 @@
+<!-- Hero-->
+<div class="bounds" id="signUp">
+    <div class="banner" 
+     fxLayout="row"
+     fxLayout.md="column"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     fxFlexFill>
+        <div class="item-1" fxFlex fxFlexOffset="50px"  fxFlexOffset.xs="0">
+            <span class="invite-content">
+                <h1>Pick a meal <span>and start nomming.</span></h1>
+                <h3>Contact us to get started.</h3>
+            </span>
+            <form novalidate
+                [formGroup]="myform">
+                <div formGroupName="name">
+                    <div fxLayout="row" class="form-group"
+                        [ngClass]="{
+                        'has-danger': name.invalid && (name.dirty || name.touched),
+                        'has-success': name.valid && (name.dirty || name.touched)}">
+                        <input type="text" class="form-control name" formControlName="name"
+                                required required placeholder="Your name">
+                        <div class="form-control-feedback"
+                            *ngIf="name.errors && (name.dirty || name.touched)">
+                            <p class="name-dirty" *ngIf="name.errors.required">Name is required</p>
+                        </div>
+                    </div>
+                </div>
+                <div formGroupName="email">
+                    <div fxLayout="row" class="form-group"
+                    [ngClass]="{
+                        'has-danger': email.invalid && (email.dirty || email.touched),
+                        'has-success': email.valid && (email.dirty || email.touched)}">
+                        <input type="email" class="form-control" formControlName="email"
+                            required required placeholder="Your email address">
+                        <div class="form-control-feedback email-dirty"
+                            *ngIf="email.errors && (email.dirty || email.touched)">
+                            <p class="email-dirty" *ngIf="email.errors.required">Email is required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="submit-button" mat-button
+                    (click)="sendMail()">
+                    Submit
+                </button> 
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container"
+    fxLayout="row" 
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap.xs="0">
+    <div class="item-3" fxFlex="55" fxFlexOffset.xs="0">
+        <video class="phone" autoplay="" loop="">
+            <!-- <source src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/options/phone.mp4"> -->
+                <source src="/assets/videos/lp.mp4"> 
+        </video>
+        <!-- <img class="phone" src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/options/phone.png" srcset="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/options/phone%402x.png 2x" style="display: none;"> -->
+    </div>
+    <div class="item-4" fxFlex="40" fxFlexOffset.xs="0">
+        <div class="promos">
+            <div class="promo">
+                <div class="lunch-benefit benefits"></div>
+                <div class="copy-one">
+                    <h4>Pick a new meal everyday</h4>
+                </div>
+            </div>
+            <div class="promo">
+                <div class="employee-choose benefits"></div>
+                <div class="copy-one">
+                    <h4>You get to choose</h4>
+                </div>
+            </div>
+            <div class="promo">
+                <div class="enjoy-repeat benefits"></div>
+                <div class="copy-one">
+                    <h4>Enjoy and Repeat</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-two">
+    <div class="section-title"><span>WHY YOU SHOULD ADD NOMFOODS</span></div>
+    <div
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign="center center"
+    class="benefit-item-7">
+        <div class="item-7" fxFlex="32" fxFlexOffset.xs="0">
+            <div class="promos">
+                <div class="promo-two">
+                    <div class="copy reduce-cost">
+                        <img class="reduce-cost" src="/assets/images/reduceCosts.png"> 
+                        <h4>Bacon ipsum</h4>
+                        <p>Bacon ipsum dolor amet beef short loin drumstick buffalo kielbasa picanha fatback meatloaf pork chop flank hamburger burgdoggen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item-7" fxFlex="36" fxFlexOffset.xs="0">
+            <div class="promos">
+                <div class="promo-two">
+                    <div class="copy optimize">
+                        <img class="optimize" src="/assets/images/optimize.png"> 
+                        <h4>Bacon ipsum</h4>
+                        <p>Bacon ipsum dolor amet beef short loin drumstick buffalo kielbasa picanha fatback meatloaf pork chop flank hamburger burgdoggen.</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="item-7" fxFlex fxFlexOffset.xs="0">
+            <div class="promos">
+                <div class="promo-two">
+                    <div class="copy attract">
+                        <img class="attract-retain" src="/assets/images/attractRetain.png"> 
+                        <h4>Bacon ipsum</h4>
+                        <p>Bacon ipsum dolor amet beef short loin drumstick buffalo kielbasa picanha fatback meatloaf pork chop flank hamburger burgdoggen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign="center center">
+        <div class="item-7" fxFlex="32" fxFlexOffset.xs="0">
+            <div class="promos">
+                <div class="promo-two">
+                    <div class="copy boost">
+                        <img class="boost-productivity" src="/assets/images/boostProductivity.png"> 
+                        <h4>Bacon ipsum</h4>
+                        <p>Bacon ipsum dolor amet beef short loin drumstick buffalo kielbasa picanha fatback meatloaf pork chop flank hamburger burgdoggen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item-7" fxFlex="36" fxFlexOffset.xs="0">
+            <div class="promos">
+                <div class="promo-two">
+                    <div class="copy reduce">
+                        <img class="reduce-fatigue" src="/assets/images/reduceFatigue.png"> 
+                        <h4>Bacon ipsum</h4>
+                        <p>Bacon ipsum dolor amet beef short loin drumstick buffalo kielbasa picanha fatback meatloaf pork chop flank hamburger burgdoggen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item-7" fxFlex fxFlexOffset.xs="0">
+            <div class="promos">
+                <div class="promo-two">
+                    <div class="copy community">
+                        <img class="community" src="/assets/images/community.png"> 
+                        <h4>Bacon ipsum</h4>
+                        <p>Bacon ipsum dolor amet beef short loin drumstick buffalo kielbasa picanha fatback meatloaf pork chop flank hamburger burgdoggen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-three">
+    <div class="section-title"><span>FLEXIBLE PLANS</span></div>
+    <div
+        fxLayout="row"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutAlign="center center"
+        class="prices">
+        <div fxFlex="20" class="columns-price">
+            <ul class="price">
+                <li class="header">1 Meal
+                    <br>
+                    <p class="header-price">$6 a meal</p>
+                </li>
+                <li><strong>MEALS ONCE A WEEK</strong></li>
+                <li class="week-price">$60/week for 10 employees</li>
+                <li class="grey">
+                    <a class="button-price" mat-raised-button href="#signUp">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+
+        <div fxFlex="20" class="columns-price">
+            <ul class="price">
+                <li class="header">3 Meal
+                    <br>
+                    <p class="header-price">$5.75 a meal</p>
+                </li>
+                <li><strong>MEALS THREE A WEEK</strong></li>
+                <li class="week-price">$172.5/week for 10 employees</li>
+                <li class="grey">
+                    <a class="button-price" mat-raised-button href="#signUp">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+
+        <div fxFlex="20" class="columns-price">
+            <ul class="price">
+                <li class="header">5 Meal
+                    <br>
+                    <p class="header-price">$5.50 a meal</p>
+                </li>
+                <li><strong>MEALS FIVE A WEEK</strong></li>
+                <li class="week-price">$275/week for 10 employees</li>
+                <li class="grey">
+                    <a class="button-price" mat-raised-button href="#signUp">Contact Us</a>
+                </li>
+                
+            </ul>
+        </div> 
+        </div>
+</div>

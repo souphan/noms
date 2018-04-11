@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+.nav-landing {
+    width: 100%;
+    position: fixed;
+    z-index:1;
+    background-color: #5EADDD;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.nav-header {
+    color: white;
+    font-size: 40px;
+}
+
+.nav-header-two {
+    background-color: #5EADDD;
+    color: white;
+    font-size: 40px;
+}
+
+.nav-header a{
+    padding-left: 60px;
+}
+
+.nav-title {
+    margin-top: 6px;
+    font-family: "Poiret One",  "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: white;
+    font-size: 40px;
+}
+
+.nav-bar-link {
+    margin-right: 10px;
+    font-size: 18px;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.nav-button {
+    color: white;
+    background-color: #5EADDD;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+@media screen and (max-width : 600px) {
+    .nav-header {
+        padding-right: 55px;
+    }
+}
+
+@media screen and (max-width : 550px) {
+    .nav-header {
+        padding-right: 70px;
+    }
+
+    .nav-button-profile {
+        display: none;
+    }
+}

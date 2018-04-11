@@ -1,0 +1,28 @@
+.container {
+    padding-top: 90px !important;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin: 10px;
+    // box-shadow: 0 3px 1px 1px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.profile {
+    text-align: center;
+    font-size: 20px;
+}
+
+a {
+    color: #5EADDD;
+    text-align: center;
+	text-decoration: none;
+	transition: all .2s ease;
+}
+
+.support-link {
+    margin-left: 20px;
+}
+
+.headers {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}

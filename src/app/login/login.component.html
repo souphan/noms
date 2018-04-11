@@ -1,0 +1,27 @@
+<div class="login-body">
+  <form class=login-form>
+      <!-- <a [routerLink]="" (click)="closeDialog()">X</a> -->
+    <div *ngIf="errorMessage!=null" class="alert alert-danger error-message">
+        {{ errorMessage }}
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="signupEmail">Email</label>
+      <input id="signupEmail" required type="email" maxlength="100" class="form-control" [(ngModel)]="email"
+              [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="form-group password">
+      <label class="control-label" for="signupPassword">Password</label>
+      <input
+            (keyup.enter)="onLogin()" required type="password" maxlength="25" autocomplete="on" class="form-control"
+            length="40" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="form-group button-red-holder">
+      <button type="button" class="button buttonRed" (click)="onLogin()">Login
+      </button> 
+    </div>
+    
+    <div class="login-reset"><a [routerLink]="" (click)="openDialogResetPassword()">Forgot Password?</a></div>
+  </form>
+</div>

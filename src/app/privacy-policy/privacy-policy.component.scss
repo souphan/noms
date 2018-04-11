@@ -1,0 +1,39 @@
+.privacy {
+    height: 400px;
+    overflow: auto;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.05px;
+    line-height: 16px;
+    margin-bottom: 22px;
+    padding: 10px;
+}
+
+a { 
+    outline: 0;
+}
+
+svg {
+    margin-top:4px;
+}
+
+.button-x {
+    width: 20px;
+}
+
+.mat-fab.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+    background-color: white;
+}
+
+.mat-mini-fab {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+// .mat-dialog-container {
+//     width: 450px !important;
+//     border-radius: 0 !important;
+//     overflow: visible !important;
+//     margin-left: -100px !important; 
+// }

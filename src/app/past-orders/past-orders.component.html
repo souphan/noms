@@ -1,0 +1,41 @@
+<div class="container" 
+  fxLayout="row wrap"
+  fxLayout.sm="column" 
+  fxLayout.xs="column" 
+  fxLayoutGap="5px"
+  fxLayoutAlign="center center">
+  <mat-card class="restaurant-card" fxFlex.gt-xs="32%" *ngFor="let r of reservations" 
+  [style.border]="getMealOfDay(r.chosenTimeIso) ? 'solid' : 'none'"
+  [style.border-color]="getMealOfDay(r.chosenTimeIso) ? '#5EADDD' : 'black'">
+    <mat-card-header>
+      <mat-card-title class="restaurant-title">
+        <img class="restaurant-image" mat-card-image [src]="r.restaurantImage" alt="Foods"> 
+      </mat-card-title>
+    </mat-card-header> 
+    <mat-card-content class="restaurant-content">
+        <div class="lunchbag-holder" *ngIf="getMealOfDay(r.chosenTimeIso)" >
+            <img mat-card-image id="lunch-bag" [src]="'/assets/images/nomfoods_bag.png'" alt="Foods">
+        </div>
+
+         <div class="chosen-meal">
+            {{r.restaurantChosenMeal}}
+        </div>
+            
+        <div class="order-restaurant">
+            {{r.restaurantName}}
+
+        </div>
+        <div class="order-time">
+            {{r.chosenTimeIso | date:'longDate' }}
+            <!-- <strong>@</strong> -->
+            <span> · </span>
+            {{r.chosenTimeLocal | lowercase}}
+        </div>
+    </mat-card-content>
+  </mat-card>
+    <div *ngIf="this.isLoading">
+        <div class="loading-spinner">
+                <img id="loading-spinner-style" [src]="'/assets/svg/Spinner.svg'" alt="Foods"> 
+        </div>
+    </div> 
+</div>

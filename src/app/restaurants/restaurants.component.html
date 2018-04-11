@@ -1,0 +1,35 @@
+<div class="container" 
+  fxLayout="row wrap"
+  fxLayout.xs="column">
+  <mat-card class="restaurant-card" fxFlex.gt-sm="32.3%" *ngFor="let restaurant of restaurants | keys; let i = index">
+    <a routerLink="/restaurants" (click)="openDialog(i)">
+    <mat-card-header>
+      <mat-card-title class="restaurant-title">
+          <img class="restaurant-image" mat-card-image [src]="restaurant.val.foods[this.foodDisplayDay].imageURL" alt="Foods"> 
+      </mat-card-title>
+    </mat-card-header> 
+    <mat-card-content class="restaurant-content">
+      {{ restaurant.val.foods[this.foodDisplayDay].food }} 
+    </mat-card-content>
+      <div class="restaurant-name">
+          {{ restaurant.val.restaurantName }}
+      </div>
+      <div class="restaurant-city">
+          <!-- <i class="material-icons">location_on</i> -->
+          {{ restaurant.val.location.city + ', ' + restaurant.val.location.state }}
+      </div>
+    <!-- <div class="restaurant-button-holder">
+      <button class="reserve-button" mat-button (click)="openDialog(i)" [disabled]="this.reservedToday">Reserve</button>
+    </div> -->
+    </a>
+  </mat-card>
+  <div *ngIf="this.isLoading">
+    <div class="loading-spinner">
+            <img id="loading-spinner-style" [src]="'/assets/svg/Spinner.svg'" alt="Foods"> 
+    </div>
+  </div> 
+</div>
+<div fxFlex id="restaurant-mobile">
+  <app-map></app-map>
+</div>  
+

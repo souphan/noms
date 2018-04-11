@@ -1,0 +1,27 @@
+agm-map {
+    position: fixed !important;
+    width: 54%;
+    height: 470px;
+    padding-top: 5px;
+}
+
+@media screen and (max-width: 767px) {
+    agm-map {
+        height: 441px;
+    }
+    
+}
+
+@media screen and (max-width: 712px) {
+    agm-map {
+        padding-top: 10px;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    agm-map {
+        padding-top: 39px;
+    }
+    
+}

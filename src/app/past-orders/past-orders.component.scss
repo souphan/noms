@@ -1,0 +1,131 @@
+.container {
+    padding-top: 64px;
+
+    margin-left: 100px;
+    margin-right:100px;
+}
+
+.restaurant-card {
+  margin: 5px;
+  margin-bottom: 2px;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+img {
+    margin-top: -16px !important;
+    margin-bottom: 0px !important;
+    height: 300px !important;
+    object-fit: cover !important;
+}
+
+.chosen-meal {
+    color: #F74350;
+    font-size: 30px;
+    // padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.order-time {
+    font-size: 14px;
+}
+
+.order-restaurant {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.restaurant-title {
+    min-height: 35px;
+    // text-align: center !important;
+}
+
+.restaurant-city {
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-content {
+    text-align: center;
+}
+
+mat-card {
+    padding: 16px;
+    margin-top: 13px;
+    // margin-bottom: 5px;
+    // border-style: solid;
+    // border-color: #5EADDD;
+}
+
+#lunch-bag {
+    height: 25px !important;
+    width: 25px !important;
+    float: right !important;
+    margin-right: -5px !important;
+    padding-top: 1px !important;
+}
+
+.lunchbag-holder {
+    padding-bottom: 4px !important;
+}
+
+.loading-spinner {
+    min-width: 700px !important;
+    margin-top: 140px !important;
+    margin-left: 0px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#loading-spinner-style {
+    height: 200px !important;
+}
+
+@media screen and (max-width: 712px) {
+    img {
+        margin-top: -17px !important;
+    }
+
+    .container {
+        padding-top: 69px;
+    }
+
+    .loading-spinner {
+        height: 50px !important;
+        margin-top: 180px !important;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    mat-card {
+        padding: 8px !important;
+        margin-top: 13px !important;
+    }
+
+    img {
+        margin-top: -8px !important;
+    }
+
+    .container {
+        padding-top: 100px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    .container {
+        padding-top: 98px;
+    }
+
+    #lunch-bag {
+        margin-right: 0px!important;
+        margin-top: -15px !important;
+    }
+
+    .loading-spinner {
+        margin-top: 160px !important;
+    }
+}

@@ -1,0 +1,48 @@
+<div class="container" fxLayout.xs="column" fxLayout="row wrap">
+    <!-- <a [routerLink]="" (click)="closeDialog()">X</a> -->
+  <a [routerLink]="" cdk-focus-region-start class="button-x" (click)="closeDialog()"><svg viewBox="0 0 24 24" role="img" aria-label="Close" focusable="true" style="height: 16px; width: 16px; display: block;"><path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd"></path></svg></a>
+  <mat-card class="restaurant-card" fxFlex.gt-xs="100%">
+    <img mat-card-image [src]="restaurants.foods[data.index].imageURL" alt="Food">
+    <mat-card-content>
+      <h3 class="restaurant-food">
+        {{ restaurants.foods[data.index].food }}
+      </h3>
+       <div class="restaurant-name">
+        <i class="material-icons">store</i>
+        {{ restaurants.restaurantName }}
+      </div> 
+
+      <div class="restaurant-location">
+        <i class="material-icons">location_on</i>
+        {{ restaurants.location.address }}
+      </div>
+      <!-- <div class="restaurant-pickup">
+        <i class="material-icons">access_time</i>
+      </div> -->
+       <div class="restaurant-pickup">
+        <strong>Select Pickup Time</strong>
+      </div> 
+    </mat-card-content>
+    <div class="time-button-holder">
+      <button class="time-button" *ngFor="let time of times" mat-raised-button
+        (click)="timeSelected(time, restaurants.restaurantName, 
+        restaurants.foods[data.index].food, restaurants.foods[data.index].imageURL)"
+        [disabled]="time.clicked">
+        {{ time.time | lowercase}}
+      </button>
+    </div>
+    <span class="order-text">
+      <p>**Once your order is placed, we are not able to cancel or modify the order**</p>
+    </span>
+    <div class="restaurant-button-holder">
+      <button class="restaurant-button" mat-button
+        [class.gray]="this.isInvalid" 
+        (click)="submit()"
+        [disabled]="this.isInvalid">
+        <!-- <span id="reserve"> -->
+            Reserve
+        <!-- </span> -->
+      </button>
+    </div>
+  </mat-card>
+</div>

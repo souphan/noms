@@ -1,0 +1,36 @@
+<div fxLayout="row" 
+     fxLayout.xs="column"
+     fxLayoutAlign="space-between center"
+    class="nav-landing">
+    <div class="nav-header">
+        <div class="nav-bar-link" 
+            routerLinkActive="active">
+            <a routerLink="/home"><img height= "60" width="60" [src]="fullImagePath" alt="nomfoods"> </a>
+            <div class="nav-title" fxFlex="100%" fxLayout="column">
+                nomfoods
+            </div>
+        </div>
+    </div>
+
+
+    <div class="nav-header-two">
+        <div class="nav-bar-link" 
+            routerLinkActive="active">
+            <span *ngIf="this.userIsLoggedIn">
+                <button class="nav-button" routerLink="/restaurants" mat-button>Restaurants</button>
+            </span>
+            <span *ngIf="this.userIsLoggedIn">
+                <button class="nav-button" routerLink="/past-orders" mat-button>Past Orders</button>
+            </span>
+            <span *ngIf="this.userIsLoggedIn">
+                <button class="nav-button nav-button-profile" routerLink="/profile" mat-button>Profile</button>
+            </span>
+            <span *ngIf="!this.userIsLoggedIn">
+                <button class="nav-button" (click)="openDialog()" mat-button> Login </button>
+            </span>
+            <span *ngIf="this.userIsLoggedIn">
+                <button class="nav-button" (click)="logout()" mat-button>Logout</button>
+            </span>
+        </div>
+    </div>
+</div>

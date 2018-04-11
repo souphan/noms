@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+a, a:visited{
+    text-decoration: none !important;
+    color: white;
+}
+
+a { 
+    outline: 0;
+}
+
+body {
+    margin: 0px;
+}
+
+ .mat-dialog-container {
+    width: 430px !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    margin-left: -100px !important; 
+    padding: 0px !important;
+}
+
+.mat-select {
+    background-color: white;
+}
+
+.mat-select-value {
+    padding: 10px 10px 10px 5px !important;
+}
+
+.mat-form-field-underline {
+    display: none; 
+}
+
+.mat-input-subscript-wrapper {
+    display: none;
+}
+
+.mat-form-field-ripple {
+    background-color: black !important;
+}
+
+@media screen and (max-width: 600px) {
+    .mat-card[_ngcontent-c4] {
+        padding: 8px;
+        margin-top: 13px;
+    }
+
+    .mat-card-image[_ngcontent-c4]:first-child {
+        margin-top: -8px;
+    }
+}
+
+@media screen and (max-width : 530px) {
+    .mat-dialog-container {
+        margin-left: -70px !important;
+    }
+}
+
+
+@media screen and (max-width : 480px) {
+    .mat-dialog-container {
+        margin-left: -60px !important; 
+    }
+}
+
+@media screen and (max-width : 435px) {
+    .mat-dialog-container {
+        margin-left: -50px !important; 
+    }
+}
+
+@media screen and (max-width : 420px) {
+    .mat-dialog-container {
+        margin-left: -40px !important; 
+    }
+}
+
+@media screen and (max-width : 400px) {
+    .mat-dialog-container {
+        margin-left: -35px !important; 
+        
+    }
+}
+
+@media screen and (max-width : 375px) {
+    .mat-dialog-container {
+        margin-left: -28px !important;
+        
+    }
+}
+
+@media screen and (max-width : 315px) {
+    .mat-dialog-container {
+        margin-left: 4px !important; 
+        
+    }
+}

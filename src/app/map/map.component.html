@@ -1,0 +1,12 @@
+<agm-map [latitude]="this.latitude" [longitude]="this.longitude" [zoom]=11>
+  <agm-marker [latitude]="this.latitude" [longitude]="this.longitude" 
+  [iconUrl]="'/assets/svg/location_me2.svg'">
+  </agm-marker>
+    <agm-marker *ngFor="let ll of locationLatLong" [latitude]="ll.lat" [longitude]="ll.long">
+        <agm-info-window>
+          {{ll.name}}
+        </agm-info-window>
+      </agm-marker>
+
+</agm-map>
+

@@ -1,0 +1,236 @@
+.container {
+    padding-top: 67px;
+    width: 70%;
+    margin-right: 3px;
+}
+
+a { 
+    outline: 0;
+}
+
+.restaurant-card {
+  margin: 5px;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+div mat-card {
+    padding: 16px;
+    margin-top: 13px;
+    margin-bottom: 5px;
+}
+
+
+.mat-card-content>:first-child, .mat-card>:first-child {
+    margin-top: 5px;
+}
+
+.restaurant-title {
+    min-height: 35px;
+}
+
+.restaurant-name {
+    padding-top: 7px;
+    color: #484848 !important;
+}
+
+.mat-card-actions, .mat-card-content, .mat-card-subtitle, .mat-card-title {
+    display: block;
+    margin-bottom: 0px !important;
+}
+
+.restaurant-city {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+    padding-bottom: 0px !important;
+    color: #484848 !important
+}
+
+.restaurant-content {
+    color: black;
+    font-size: 20px;    
+    font-weight: 500 !important;
+    line-height: 21px !important;
+}
+
+.details-button {
+    background-color: #5EADDD;
+    color: white;
+    width:100%;
+    margin: 1px;
+}
+
+.loading-spinner {
+    min-width: 700px !important;
+    margin-top: 80px;
+    margin-left: 150px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#loading-spinner-style {
+    height: 200px !important;
+}
+
+.material-icons {
+    color: #F74350;
+}
+
+img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.reserve-button {
+    background-color: #F74350;
+    color: white;
+    width:100%;
+    margin: 1px;
+}
+
+.restaurant-select {
+    width:100%;
+}
+
+#restaurant-mobile {
+    padding-top: 67px;
+}
+
+@media screen and (max-width: 1380px) {
+
+    .container {
+        width: 80%;
+        margin-right: 0px !important;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+
+    .container {
+        width: 90%;
+        margin-right: 0px !important;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    .container {
+        width: 100%;
+        margin-right: 0px !important;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    .container {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 967px) {
+    mat-card {
+        min-width: 48% !important;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .loading-spinner {
+        margin-top: 60px !important;
+        margin-left: 60px !important;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+
+    .loading-spinner {
+        margin-left: 0px !important;
+    }
+}
+
+@media screen and (max-width: 712px) {
+    img {
+        margin-top: -16x !important;
+    }
+
+    .container {
+        padding-top: 75px;
+    }
+
+    .loading-spinner {
+        margin-left: -30px !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding-top: 100px;
+        width: 100%;
+    }
+
+    .loading-spinner {
+        margin-left: -130px !important;
+    }
+
+    mat-card {
+        padding: 8px !important;
+        margin-top: 13px !important;
+    }
+
+    img {
+        margin-top: -8px !important;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    #restaurant-mobile {
+        display: none;
+    }
+
+    .loading-spinner {
+        margin-top: 20px !important;
+        margin-left: -95px !important;
+    }
+
+    .container {
+        padding-top: 98px;
+    }
+
+    img {
+        flex-direction: column;
+    }
+  
+    img{
+        margin-top: -1px !important;
+    }
+}
+
+@media screen and (max-width : 460px) {
+    .loading-spinner {
+        margin-top: 93px !important;
+        margin-left: -125px !important;
+    }
+}
+
+@media screen and (max-width : 450px) {
+    .loading-spinner {
+        margin-top: 90px !important;
+        margin-left: -130px !important;
+    }
+}
+
+@media screen and (max-width : 440px) {
+    .loading-spinner {
+        margin-left: -140px !important;
+    }
+}
+
+@media screen and (max-width : 400px) {
+    .loading-spinner {
+        margin-left: -160px !important;
+    }
+}
