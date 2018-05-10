@@ -21,14 +21,15 @@ export class NavbarComponent implements OnInit {
     public userService: UserLoginService,
     public awsUtil: AwsUtil,
     public router: Router) {
-    this.currentUser = this.userService.currentUser;
     this.fullImagePath = '/assets/images/nomfoods.PNG';
   }
 
   public ngOnInit() {
     this.currentUser = this.userService.currentUser;
     if(this.currentUser) {
-      this.userIsLoggedIn = this.currentUser.username;
+      this.userIsLoggedIn = true;
+    } else {
+      this.userIsLoggedIn = false;
     }
   }
 

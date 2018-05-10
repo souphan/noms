@@ -39,9 +39,7 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
     public dialog: MatDialog,
     public router: Router,
     public userService: UserLoginService,
-    ) {
-      this.currentUser = this.userService.currentUser;
-    }
+    ) {}
 
   public isLoggedIn(message: string, isLoggedIn: boolean) {
       if (!isLoggedIn) {

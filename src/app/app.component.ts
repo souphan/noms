@@ -29,6 +29,7 @@ export class AppComponent implements OnInit, LoggedInCallback {
         console.log("AppComponent: constructor");
     }
 
+    // Adding Google analytics. Work in progress at the moment.
     // public router: Router, public googleAnalyticsEventsService: GoogleAnalyticsEventsService) {
     //     console.log("AppComponent: constructor");
 
