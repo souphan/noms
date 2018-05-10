@@ -1,0 +1,368 @@
+swagger: "2.0"
+info:
+  version: "1.0.1"
+  title: nomfoods-api
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths
+basePath: /
+#
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /restaurants:
+    get:
+      description: Returns List of 'Restaurants'
+      # used as the method name of the controller
+      operationId: restaurants-List
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/RestaurantsListResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      description: Adds a Restaurant
+      operationId: restaurants-Create
+      parameters:
+      - $ref: "#/parameters/Restaurant"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Restaurant"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /restaurants/{restaurantId}:
+    delete:
+      description: Deletes a Restaurant
+      operationId: restaurants-Delete
+      parameters:
+      - $ref: "#/parameters/restaurantId"
+      responses:
+        "200":
+          description: Success
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    get:
+      description: Returns a Restaurant
+      # used as the method name of the controller
+      operationId: restaurants-Get
+      parameters:
+      - $ref: "#/parameters/restaurantId"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/Restaurant"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  
+  /restaurants/{restaurantId}/resources:
+    get:
+      description: Returns list of 'Resources'
+      operationId: resources-List
+      parameters:
+      - $ref: "#/parameters/restaurantId"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/ResourcesListResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    post:
+      description: Add Resource
+      operationId: resources-Create
+      parameters:
+      - $ref: "#/parameters/restaurantId"
+      - $ref: "#/parameters/Resource"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Resource"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /restaurants/{restaurantId}/resources/{resourceId}:
+    get:
+      description: Get resource
+      operationId: resources-Get
+      parameters:
+      - $ref: "#/parameters/restaurantId"
+      - $ref: "#/parameters/ResourceId"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Resource"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  
+    delete:
+      description: Deletes a Resource
+      operationId: resources-Delete
+      parameters:
+      - $ref: "#/parameters/restaurantId"
+      - $ref: "#/parameters/ResourceId"
+      responses:
+        "200":
+          description: Success
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /restaurants/{restaurantId}/resources/{resourceId}/reservations:
+    get:
+      description: Returns List of Reservations associated with Resource
+      operationId: reservations-ListByResourceId
+      parameters:
+      - $ref: "#/parameters/restaurantId"
+      - $ref: "#/parameters/ResourceId"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/ReservationsListResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /users/{userId}/reservations/:
+    get:
+      description: Returns List of Reservations associated with a User
+      operationId: reservations-ListByUserId
+      parameters:
+      - $ref: "#/parameters/UserId"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/ReservationsListResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    post:
+      description: Add Reservation
+      operationId: reservations-Create
+      parameters:
+      - $ref: "#/parameters/UserId"
+      - $ref: "#/parameters/Reservation"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Reservation"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /users/{userId}/reservations/{reservationId}:
+    get:
+      description: Get reservation
+      operationId: reservations-Get
+      parameters:
+      - $ref: "#/parameters/UserId"
+      - $ref: "#/parameters/ReservationId"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Reservation"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    delete:
+      description: Delete reservations
+      operationId: reservations-Delete
+      parameters:
+      - $ref: "#/parameters/UserId"
+      - $ref: "#/parameters/ReservationId"
+      responses:
+        "200":
+          description: Success
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+parameters:
+  Restaurant:
+    in: "body"
+    name: "body"
+    required: true
+    schema:
+      $ref: "#/definitions/Restaurant"
+  restaurantId:
+    in: "path"
+    name: "restaurantId"
+    required: true
+    type: string
+  Resource:
+    in: "body"
+    name: "body"
+    required: true
+    schema:
+      $ref: "#/definitions/Resource"
+  ResourceId:
+    in: "path"
+    name: "resourceId"
+    required: true
+    type: string
+  UserId:
+    in: "path"
+    name: "userId"
+    required: true
+    type: string
+  ReservationId:
+    in: "path"
+    name: "reservationId"
+    required: true
+    type: string
+  Reservation:
+    in: "body"
+    name: "body"
+    required: true
+    schema:
+      $ref: "#/definitions/Reservation"
+# complex objects have schema definitions
+definitions:
+  RestaurantsListResponse:
+    required:
+    - items
+    properties:
+      items:
+        type: array
+        items:
+          $ref: "#/definitions/Restaurant"
+  Restaurant:
+    required:
+    - name
+    properties:
+      restaurantId:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      imageUrl:
+        type: string
+  ResourcesListResponse:
+    required:
+    - items
+    properties:
+      items:
+        type: array
+        items:
+          $ref: "#/definitions/Resource"
+  Resource:
+    required:
+    - name
+    properties:
+      resourceId:
+        type: string
+      restaurantId:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+  ReservationsListResponse:
+    required:
+    - items
+    properties:
+      items:
+        type: array
+        items:
+          $ref: "#/definitions/Reservation"
+  Reservation:
+    required:
+    - restaurantId
+    - resourceId
+    - userId
+    properties:
+      reservationId:
+        type: string
+      restaurantId:
+        type: string
+      restaurantName:
+        type: string
+      resourceId:
+        type: string
+      userId:
+        type: string
+      userFirstName:
+        type: string
+      userLastName:
+        type: string
+      resourceName:
+        type: string
+      resourceDescription:
+        type: string
+      timeslot:
+        type: string
+      startTimeIsoTimestamp:
+        type: string
+      startTimeEpochTime:
+        type: number
+      endTimeIsoTimestamp:
+        type: string
+      endTimeEpochTime:
+        type: number
+  ErrorResponse:
+    required:
+      - message
+      - type
+    properties:
+      message:
+        type: string
+      type:
+        type: string
+x-aws-api-id: 'w9ra9q1n66'
