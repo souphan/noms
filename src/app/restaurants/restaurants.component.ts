@@ -1,7 +1,6 @@
 import { Component, OnInit, EventEmitter, Input} from '@angular/core';
 import { DatabaseService } from "../services/database.service";
 import { TimeService } from "../services/time.service";
-import { ReservedStatusService } from "../services/reserved-status.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DetailsComponent } from '../details/details.component';
 import { Observable } from "rxjs";
@@ -17,7 +16,7 @@ import { CompanyInfoListResponse } from '../model/CompanyInfoListResponse';
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
   styleUrls: ['./restaurants.component.scss'],
-  providers:[DatabaseService, TimeService, ReservedStatusService]
+  providers:[DatabaseService, TimeService]
 })
 export class RestaurantsComponent implements OnInit, LoggedInCallback {
   public restaurants: RestaurantsListResponse;
@@ -78,7 +77,6 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
       if (!isResultEmpty) {
         this.reservedToday = result.reservedToday;
       }
-      // console.log(this.restaurants, "getting closed");
     });
   }
 
@@ -109,9 +107,9 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
       this.database.getReservedTodayStatus(this.reservedStatusItem)
       .subscribe(
           data => {
-              this.reservedToday = data;// success path
+              this.reservedToday = data;
           },
-          error => this.error = error // error path
+          error => this.error = error
       )
     }
   }

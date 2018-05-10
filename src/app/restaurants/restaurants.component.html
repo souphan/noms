@@ -1,7 +1,7 @@
 <div class="container" 
   fxLayout="row wrap"
   fxLayout.xs="column">
-  <mat-card class="restaurant-card" fxFlex.gt-sm="32.3%" *ngFor="let restaurant of restaurants | keys; let i = index">
+  <mat-card class="restaurant-card" fxFlex.gt-sm="32.6%" *ngFor="let restaurant of restaurants | keys; let i = index">
     <a routerLink="/restaurants" (click)="openDialog(i)">
     <mat-card-header>
       <mat-card-title class="restaurant-title">
@@ -15,12 +15,8 @@
           {{ restaurant.val.restaurantName }}
       </div>
       <div class="restaurant-city">
-          <!-- <i class="material-icons">location_on</i> -->
           {{ restaurant.val.location.city + ', ' + restaurant.val.location.state }}
       </div>
-    <!-- <div class="restaurant-button-holder">
-      <button class="reserve-button" mat-button (click)="openDialog(i)" [disabled]="this.reservedToday">Reserve</button>
-    </div> -->
     </a>
   </mat-card>
   <div *ngIf="this.isLoading">
@@ -29,7 +25,8 @@
     </div>
   </div> 
 </div>
-<div fxFlex id="restaurant-mobile">
+<!-- Not using map component at the moment -->
+<!-- <div fxFlex id="restaurant-mobile">
   <app-map></app-map>
-</div>  
+</div>   -->
 
