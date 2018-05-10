@@ -2,7 +2,6 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { UserLoginService } from "../service/user-login.service";
 import { HomeComponent } from "./home/home.component";
-import { FormsComponent } from "./forms/forms.component";
 import { PasswordComponent } from './password/password.component';
 import { LoginComponent } from './login/login.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';

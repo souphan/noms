@@ -64,7 +64,6 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { FormsComponent } from './forms/forms.component';
 import { PasswordComponent } from './password/password.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
@@ -94,15 +93,12 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ResetPasswordTwoComponent } from './reset-password-two/reset-password-two.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ReservationClosedComponent } from './reservation-closed/reservation-closed.component';
-// import { ResetPasswordTwoComponent } from './reset-password/reset-password.component';
-// import { ResetPasswordStepTwoComponent } from './reset-password-step-two/reset-password-step-two.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    FormsComponent,
     PasswordComponent,
     FooterComponent,
     LoginComponent,

@@ -41,11 +41,17 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
     public userService: UserLoginService,
     ) {}
 
+  /**
+   * Login checker that routes to Home if not logged in
+   * @param {string} message this is the message we get back
+   * @param {Boolean} isLoggedIn Boolean check if the user is logged in. If not, then navigate to home
+   */
   public isLoggedIn(message: string, isLoggedIn: boolean) {
       if (!isLoggedIn) {
           this.router.navigate(['/home']);
       }
   }
+
   /**
    * Utility method that should be in a util class, or module
    * @param {string} obj object for checking
@@ -60,6 +66,10 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
       return true;
   }
 
+  /**
+   * Dialog box to open up details component
+   * @param {index} index This is the selected restaurants index
+   */
   public openDialog(index): void {  
     let dialogRef = this.dialog.open(DetailsComponent, {
       width: '250px',
@@ -78,6 +88,9 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
     });
   }
 
+  /**
+   * Checking on initialization if they can view the restaurants listed in a specified time window.
+   */
   public ngOnInit() {
     this.userService.isAuthenticated(this);
     this.currentUser = this.userService.currentUser;
@@ -96,6 +109,10 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
     this.retrieveReservedTodayStatus();
   }
 
+  /**
+   * API call to get Boolean reservedStatus flag. If not reserved for the day, then User can make an order.
+   * @return {void} boolean
+   */
   public getReservedTodayStatus() {
    if (this.currentUser.signInUserSession.idToken.payload.hasOwnProperty('custom:company')){
       this.reservedStatusItem = {
@@ -112,6 +129,10 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
     }
   }
 
+  /**
+   * API call to get a list of restaurants
+   * @return {Observable} Array of Objects
+   */
   public getRestaurants() {
     this.isLoading = true;
     this.database.getRestaurantsMetro(this.companyFromStorage['metroArea']).subscribe( data => {
@@ -120,14 +141,19 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
     });
   }
   
+  // Async call for restaurants
   public async retrieveRestaurants() {
     await this.getRestaurants();
   }
   
+  // Async call for reservedStatus
   public async retrieveReservedTodayStatus() {
     await this.getReservedTodayStatus();
   }
 
+  /**
+   * Check if it is the weekend. If it is, then show weekend component.
+   */
   public checkWeekend(isItWeekday:boolean, isItFiveAndFriday:boolean) {
     if (!isItWeekday || isItFiveAndFriday) {
       this.router.navigate(['/weekend']);
