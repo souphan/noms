@@ -4,7 +4,6 @@ import { routing } from "./app.routing";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AgmCoreModule } from '@agm/core';
-import { FormSelectComponent } from './form-select/form-select.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { DerpPipe } from './pipes/derp.pipe';
 // import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
@@ -105,7 +104,6 @@ import { ReservationClosedComponent } from './reservation-closed/reservation-clo
     RestaurantsComponent,
     DetailsComponent,
     MapComponent,
-    FormSelectComponent,
     KeysPipe,
     DerpPipe,
     ConfirmationDialogComponent,
