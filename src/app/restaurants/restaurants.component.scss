@@ -63,7 +63,7 @@ div mat-card {
 .loading-spinner {
     min-width: 700px !important;
     margin-top: 80px;
-    margin-left: 150px;
+    margin-left: 350px;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -190,14 +190,12 @@ img {
 @media screen and (max-width : 460px) {
     .loading-spinner {
         margin-top: 93px !important;
-        margin-left: -125px !important;
     }
 }
 
 @media screen and (max-width : 450px) {
     .loading-spinner {
         margin-top: 90px !important;
-        margin-left: -130px !important;
     }
 }
 
