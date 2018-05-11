@@ -11,6 +11,7 @@ import {AuthenticationDetails} from "amazon-cognito-identity-js";
 import {UserLoginService} from "../../service/user-login.service";
 import { ReservationsListResponse } from '../model/ReservationsListResponse';
 import { DatePipe } from '@angular/common';
+import { DateTime } from 'aws-sdk/clients/opsworks';
 
 @Component({
   selector: 'app-past-orders',
@@ -24,39 +25,6 @@ export class PastOrdersComponent implements OnInit, LoggedInCallback {
   private currentUser: any;
   private error: any;
   public isLoading: boolean = false;
-
-  public times = [
-    { 
-      time: '11:00 AM',
-      clicked: false,
-      disabled: false
-    },
-    { 
-      time: '11:30 AM',
-      clicked: false,
-      disabled: false
-    },
-    { 
-      time: '12:00 PM',
-      clicked: false,
-      disabled: false
-    },
-    { 
-      time: '12:30 PM',
-      clicked: false,
-      disabled: false
-    },
-    { 
-      time: '1:00 PM',
-      clicked: false,
-      disabled: false
-    },
-    { 
-      time: '1:30 PM',
-      clicked: false,
-      disabled: false
-    },
-  ];
 
   constructor(private database: DatabaseService, 
     public userService: UserLoginService,
@@ -77,6 +45,9 @@ export class PastOrdersComponent implements OnInit, LoggedInCallback {
     this.retrieveReservations();
   }
 
+  /**
+   * API call to get past food reservations
+   */
   public getReservations() {
     this.isLoading = true;
     this.database.getReservations(this.currentUser.username).subscribe( data => {
@@ -89,6 +60,11 @@ export class PastOrdersComponent implements OnInit, LoggedInCallback {
     await this.getReservations();
   }
 
+  /**
+   * Highlights meal of the day using chosen Date time object
+   * @param {DateTime} chosen object for checking
+   * @return {void} boolean
+   */
   public getMealOfDay(chosen) {
     let todaysDate = new Date();
     let utcDate = new Date(chosen);
