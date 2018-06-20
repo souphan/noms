@@ -112,6 +112,8 @@ export class UserRegistrationService {
             Pool: this.cognitoUtil.getUserPool()
         };
 
+        localStorage.setItem('companyName', JSON.stringify(newPasswordUser.company));
+
         console.log("UserLoginService: Params set...Authenticating the user");
         let cognitoUser = new CognitoUser(userData);
         console.log("UserLoginService: config is " + AWS.config);

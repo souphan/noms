@@ -33,6 +33,7 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
   private error: any;
   private companyFromStorage: any;
   private reservedStatusItem: any;
+  private companyName: string;
 
   constructor(private database: DatabaseService,
     private time: TimeService,
@@ -99,15 +100,24 @@ export class RestaurantsComponent implements OnInit, LoggedInCallback {
     this.isReservationOpen = this.time.isReservationOpen();
     this.isItWeekday = this.time.isItWeekday();
     this.isItFiveAndFriday = this.time.isItFiveAndFriday();
-    this.database.getCompanyInfo(this.currentUser.signInUserSession.idToken.payload['custom:company']).subscribe( data => {
-      this.companyFromStorage = data;
-      sessionStorage.setItem('currentCompany', JSON.stringify(this.companyFromStorage));
-      this.retrieveRestaurants();
-    });
+    if(this.companyName != null){
+      this.getCompanyInfo(this.companyName);
+    } else{
+      this.getCompanyInfo(this.currentUser.signInUserSession.idToken.payload['custom:company']);
+    }
     this.checkWeekend(this.isItWeekday, this.isItFiveAndFriday);
     
     this.retrieveReservedTodayStatus();
   }
+
+  public getCompanyInfo(companyName) {
+    this.database.getCompanyInfo(companyName).subscribe( data => {
+      this.companyFromStorage = data;
+      sessionStorage.setItem('currentCompany', JSON.stringify(this.companyFromStorage));
+      this.retrieveRestaurants();
+    });
+  }
+  
 
   /**
    * API call to get Boolean reservedStatus flag. If not reserved for the day, then User can make an order.
